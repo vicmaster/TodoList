@@ -1,0 +1,11 @@
+= form_for @list do |form|
+  %label
+    %p Name:
+    %p
+      = form.text_field :name
+  %label
+    %p Description:
+    %p
+      = form.text_field :description
+  %p
+    = form.submit

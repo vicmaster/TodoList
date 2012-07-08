@@ -1,0 +1,14 @@
+%h1 My Todo list
+
+- @lists.each do |list|
+  %h2
+    = link_to "#{list.name}", list_path(list)
+  %p
+    = list.description
+
+    = link_to "Edit", edit_list_path(list)
+    |
+    = link_to "Delete", list_path(list), method: :delete
+
+%hr
+  = link_to "Add a new list", new_list_path
