@@ -1,4 +1,21 @@
 %h2= @list.name
 %p= @list.description
+%h3 Stuff I have to do
+%ul
+  - @list.tasks.incompleted.each do |task|
+    %li
+      = task.description
+      \-
+      - button_to "Complete", complete_task_path(@list.id,task.id)
+%h3 Stuff I've done
+%ul#completed
+  - @list.tasks.completed.each do |task|
+    %li
+      = task.description
+%hr
+= form_for [@list, @task] do |form|
+  %p
+    = form.text_field :description
+    = form.submit
 %hr
 = link_to 'Back to all list', lists_path
