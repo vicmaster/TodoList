@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass'
-gem 'fancybox-rails'
-gem 'haml-rails'
-gem 'jquery-rails'
-gem 'sqlite3'
-gem 'rails', '3.2.6'
-gem 'sass-rails',   '~> 3.2.3'
+  gem 'bootstrap-sass'
+  gem 'fancybox-rails'
+  gem 'haml-rails'
+  gem 'jquery-rails'
+  gem 'sqlite3'
+  gem 'rails', '3.2.6'
+  gem 'sass-rails',   '~> 3.2.3'
+
+# So that we can debug your app
+  gem 'pry'
 
 # So that we can support and admin panel
 # gem 'devise'
