@@ -15,7 +15,7 @@ class ListsController < ApplicationController
     @list = List.new(params[:list])
     if @list.save
       flash[:notice] = "List Created."
-      respond_with(@list, location: list_url(@list))
+      redirect_to lists_url
     else
       flash[:error] = "Could not create a list."
       redirect_to new_list_url(@list)
