@@ -12,10 +12,12 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(params[:list])
+    @list = List.new params[:list]
+
     if @list.save
       flash[:notice] = "List Created."
       redirect_to lists_url
+
     else
       flash[:error] = "Could not create a list."
       redirect_to new_list_url(@list)
@@ -23,7 +25,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id])
+    @list = List.find params[:id]
     @task = @list.tasks.new
   end
 

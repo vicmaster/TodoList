@@ -3,8 +3,11 @@ require 'spec_helper'
 describe ListsController do
 
   describe "Get: Index" do
-    specify do
+    before do
       List.should_receive(:all)
+    end
+
+    specify do
       get :index
       response.should be_success
     end
@@ -55,32 +58,25 @@ describe ListsController do
   end
 
   describe "Get: Show" do
-    let(:list) { mock List,  name: 'Home', description: 'Things to do at home' }
-    let(:params) { { id: 1 } }
+    let(:list) { mock 'list' }
     let(:task) { mock Task, description: 'Clean all fornitures' }
 
     before do
-      List.should_receive(:find).with(1).and_return list
-      list.stub_chain(:task, :new).and_return task
+      List.should_receive(:find).with("1").and_return list
+      list.stub_chain(:tasks, :new).and_return task
     end
 
     specify do
       get :show, id: 1
       response.should be_success
     end
-
-    specify do
-      response.status.should eq 200
-    end
-
   end
 
   describe "Delete: Destroy" do
     let(:list) { mock List }
-    let(:params) { { id: 1 } }
 
     before do
-      List.should_receive(:find).with(params[:id]).and_return list
+      List.should_receive(:find).with('1').and_return list
     end
 
     context 'When destroy not fail' do
