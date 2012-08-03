@@ -72,42 +72,64 @@ describe ListsController do
     end
   end
 
-  describe "Delete: Destroy" do
-    let(:list) { mock List }
+  describe "Get: Edit" do
+    let(:list) { mock 'list' }
 
     before do
-      List.should_receive(:find).with('1').and_return list
+      List.should_receive(:find).with("1").and_return list
     end
 
+    specify do
+      get :edit, id: 1
+      response.should be_success
+    end
+  end
+
+  describe "Put: Update" do
+    let(:list) { Fabricate(:list) }
+
+    before do
+      List.should_receive(:find).with("1").and_return list
+    end
+
+    context 'When update not fail' do
+      specify do
+        put :update, id: 1
+        response.should redirect_to(edit_list_url(:list))
+      end
+    end
+
+    context 'When update fail' do
+      specify do
+        put :update, id: 1
+        response.should be_redirect
+      end
+    end
+  end
+
+
+  describe "Delete: Destroy" do
+    let(:list) { mock 'list' }
+
+    before do
+      List.should_receive(:find).with("1").and_return list
+      list.should_receive(:destroy)
+    end
+
+
     context 'When destroy not fail' do
-
-      before do
-        list.should_receive(:destroy)
+      specify do
         delete :destroy, id: 1
-      end
-
-      specify do
-        response.status.should eq 302
-      end
-
-      specify do
+        response.should redirect_to(lists_url)
         flash[:notice] = "List Deleted."
       end
     end
 
     context 'When destroy fail' do
-
-      before do
-        list.should_receive(:destroy)
+      specify do
         delete :destroy, id: 1
-      end
-
-      specify do
         response.should redirect_to(lists_url)
-      end
-
-      specify do
-        flash[:error].should_not be_blank
+        flash[:error] = "Could not delete the list, Have you done everything?"
       end
     end
   end

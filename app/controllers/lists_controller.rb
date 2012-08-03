@@ -37,7 +37,6 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     if @list.update_attributes(params[:list])
       flash[:notice] = "List Updated."
-      respond_with(@list, location: list_url(@list))
     else
       flash[:error] = "Could not update a list"
       redirect_to edit_list_url(@list)
