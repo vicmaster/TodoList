@@ -7,9 +7,8 @@ source 'https://rubygems.org'
   gem 'sqlite3'
   gem 'rails', '3.2.6'
   gem 'sass-rails',   '~> 3.2.3'
+  gem "rails-backbone"
 
-# So that we can debug your app
-  gem 'pry'
 
 # So that we can support and admin panel
 # gem 'devise'
@@ -30,5 +29,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'pry'
   gem 'rspec-rails'
 end
