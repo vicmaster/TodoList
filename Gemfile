@@ -4,10 +4,10 @@ source 'https://rubygems.org'
   gem 'fancybox-rails'
   gem 'haml-rails'
   gem 'jquery-rails'
-  gem 'sqlite3'
   gem 'rails', '3.2.6'
-  gem 'sass-rails',   '~> 3.2.3'
   gem "rails-backbone"
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sqlite3'
 
 
 # So that we can support and admin panel
@@ -27,6 +27,7 @@ group :development, :test do
   gem 'annotate'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'fabrication'
   gem 'guard-rspec'
   gem 'launchy'
   gem 'pry'

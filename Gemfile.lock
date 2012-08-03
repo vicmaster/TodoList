@@ -56,6 +56,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.2.1)
     fancybox-rails (0.1.4)
       railties (>= 3.1.0)
     ffi (1.0.11)
@@ -191,6 +192,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   database_cleaner
+  fabrication
   fancybox-rails
   guard-rspec
   haml-rails
