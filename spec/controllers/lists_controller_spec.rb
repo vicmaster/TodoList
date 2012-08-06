@@ -87,32 +87,32 @@ describe ListsController do
   end
 
   describe "Put: Update" do
-    let(:list) { Fabricate(:list) }
+    let(:list) { Fabricate :list }
 
     before do
-      List.should_receive(:find).with("1").and_return list
+      List.should_receive(:find).with(list.id.to_s).and_return list
     end
-
 
     context 'When update not fail' do
       before do
-        list.should_receive(:update_attributes).with("Work", "Things I have to do at work").and_return true
-        put :update, id: 1, name: "Work", description: "Things I have to do at work"
+        list.should_receive(:update_attributes).and_return true
       end
 
       specify do
-        response.should redirect_to(list_url)
+        put :update, id: list.id, name: list.name, description: list.description
+        response.should redirect_to(lists_url)
         flash[:notice] = "List Updated."
       end
     end
 
     context 'When update fail' do
       before do
-        list.should_receive(:update_attributes)
-        put :update, id: 1
+        list.should_receive(:update_attributes).and_return false
       end
+
       specify do
-        response.should be_redirect
+        put :update, id: list.id, name: list.name, description: list.description
+        response.should redirect_to(edit_list_url(list))
         flash[:error] = "Could not update a list"
       end
     end
