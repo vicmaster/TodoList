@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 
-  respond_to :html, :xml, :js
+  respond_to :html, :xml, :json
   layout 'todo'
 
   def index
@@ -37,6 +37,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     if @list.update_attributes(params[:list])
       flash[:notice] = "List Updated."
+      redirect_to list_url
     else
       flash[:error] = "Could not update a list"
       redirect_to edit_list_url(@list)

@@ -13,6 +13,7 @@ describe ListsController do
     end
   end
 
+
   describe "Get: New" do
     specify do
       List.should_receive(:new)
@@ -92,19 +93,30 @@ describe ListsController do
       List.should_receive(:find).with("1").and_return list
     end
 
+
     context 'When update not fail' do
+      before do
+        list.should_receive(:update_attributes).with("Work", "Things I have to do at work").and_return true
+        put :update, id: 1, name: "Work", description: "Things I have to do at work"
+      end
+
       specify do
-        put :update, id: 1
-        response.should redirect_to(edit_list_url(:list))
+        response.should redirect_to(list_url)
+        flash[:notice] = "List Updated."
       end
     end
 
     context 'When update fail' do
-      specify do
+      before do
+        list.should_receive(:update_attributes)
         put :update, id: 1
+      end
+      specify do
         response.should be_redirect
+        flash[:error] = "Could not update a list"
       end
     end
+
   end
 
 
