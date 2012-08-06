@@ -4,12 +4,14 @@ source 'https://rubygems.org'
   gem 'fancybox-rails'
   gem 'haml-rails'
   gem 'jquery-rails'
-  gem 'sqlite3'
   gem 'rails', '3.2.6'
   gem 'sass-rails',   '~> 3.2.3'
 
 # So that we can debug your app
   gem 'pry'
+
+# Client library and command-line tool to deploy and manage apps on Heroku.
+  gem 'heroku'
 
 # So that we can support and admin panel
 # gem 'devise'
@@ -24,7 +26,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
+  gem 'sqlite3'
   gem 'annotate'
   gem 'capybara'
   gem 'database_cleaner'
