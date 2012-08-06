@@ -5,10 +5,10 @@ source 'https://rubygems.org'
   gem 'haml-rails'
   gem 'jquery-rails'
   gem 'rails', '3.2.6'
+  gem "rails-backbone"
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'sqlite3'
 
-# So that we can debug your app
-  gem 'pry'
 
 # Client library and command-line tool to deploy and manage apps on Heroku.
   gem 'heroku'
@@ -35,7 +35,9 @@ group :development, :test do
   gem 'annotate'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'fabrication'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'pry'
   gem 'rspec-rails'
 end
