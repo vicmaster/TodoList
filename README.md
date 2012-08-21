@@ -25,9 +25,9 @@ $ rails server
 ```
 
 ## Demo Online
-```
-  http://mitodo.herokuapp.com/
-```
+
+* http://mitodo.herokuapp.com/
+
 
 ## Aditional Usage
 
