@@ -11,7 +11,7 @@ $ git clone git@github.com:vicmaster/TodoList.git
 $ bundle install
 $ rake db:setup
 ```
-### TDD: Set Guard
+## TDD: Set Guard
 
 ```
 $ rake db:test:prepare
@@ -22,6 +22,11 @@ $ bundle exec guard start
 
 ```
 $ rails server
+```
+
+## Demo Online
+```
+  http://mitodo.herokuapp.com/
 ```
 
 ## Aditional Usage
