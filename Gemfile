@@ -7,7 +7,6 @@ source 'https://rubygems.org'
   gem 'rails', '3.2.6'
   gem "rails-backbone"
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'sqlite3'
 
 
 # Client library and command-line tool to deploy and manage apps on Heroku.
