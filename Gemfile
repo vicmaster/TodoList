@@ -21,6 +21,7 @@ source 'https://rubygems.org'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'handlebars_assets' 
   gem 'jquery-ui-rails'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -30,7 +31,6 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'annotate'
   gem 'capybara'
   gem 'database_cleaner'
@@ -39,4 +39,5 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'sqlite3'
 end
